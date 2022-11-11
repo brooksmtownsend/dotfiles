@@ -1,0 +1,41 @@
+# Inserts a blank line between shell prompts
+# add_newline = true
+
+# Enable wash prompt
+#format = """
+#${custom.wash_ver}${custom.wash_context}$all$directory$username$character
+#"""
+format = """
+$all$directory$username$character
+"""
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[directory]
+truncate_to_repo = false
+truncation_length = 10
+use_logical_path = true
+
+[git_branch]
+symbol = ""
+
+
+# [custom.wash_ver]
+# symbol = "🛁"
+# when = "true"
+# command = "wash -V"
+# format = "[$symbol $output]($style) "
+# style = "bold fg:#00C389"
+# 
+# [custom.wash_context]
+# when = "true"
+# command = "wash ctx list -o json | jq -r '.default'"
+# format = "[\\[$output\\]]($style) "
+# style = "bold fg:#00C389"

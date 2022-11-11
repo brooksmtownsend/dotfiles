@@ -1,0 +1,91 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/brooks/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# Preferred editor for local and remote sessions
+export EDITOR='vim'
+
+# Use aarch64 homebrew, make
+export PATH=/opt/homebrew/opt/make/libexec/gnubin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+# Add infra scripts
+export PATH=/Users/brooks/github.com/cosmonic/infra/scripts:$PATH
+export STARSHIP_CONFIG=~/.config/starship.toml
+export STARSHIP_CACHE=~/.config/starship.cache
+eval "$(starship init zsh)"
+eval $(thefuck --alias)
+. /Users/brooks/.asdf/asdf.sh
+
+# ============Plugins============
+# I always want to be in tmux mode because it's good, so that's happening here
+#if type tmux >/dev/null 2>/dev/null; then
+#  if [ -z "${TMUX}" ]; then
+#    tmux -f $HOME/.config/tmux.conf
+#  fi
+#fi
+
+export RUST_LOG=info
+export GO111MODULE=on
+export VIMINIT="source ~/.config/vim/vimrc"
+export AWS_PROFILE=dev
+
+alias python=python3
+alias ls='exa'
+alias ll='exa -alFh --group-directories-first'
+alias lt='exa -lhaFT -L 2 --group-directories-first'
+alias api='cd ~/github.com/cosmonic/cosmonic-api'
+alias ui='cd ~/github.com/cosmonic/cosmonic-ui'
+alias be='cd ~/github.com/cosmonic/cosmonic-backend'
+alias wasmbleach="ps -ax | grep -i wasmcloud | awk '{print $1}' |xargs kill -9"
+alias cat='bat'
+alias f='fuck'
+alias p='ps aux'
+
+function cleanup_this_dir() {
+	folder="cleanup$(date +%m%d%Y)"
+	mkdir -p $folder
+	ls -la | grep -v $folder | awk '{print $7}' | xargs -I % mv % $folder
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+# Setting key bindings for moving w/ alt
+bindkey "\e[1;3D" backward-word
+bindkey "\e[1;3C" forward-word
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$PATH:/Users/brooks/Library/Python/3.8/bin"
+export PATH="$PATH:/Users/brooks/.nsc/bin"
+export PATH="$PATH:/Users/brooks/go/bin"
+export FLYCTL_INSTALL="/Users/brooks/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# wash completions
+#$HOME/.cargo/bin/wash completions -d $HOME/.wash zsh
+#fpath=( $HOME/.wash "${fpath[@]}" )
+#[ -n "$ZSH" ] && [ -r $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+export PATH="/Users/brooks/.cosmo/bin:${PATH}"
