@@ -1,0 +1,19 @@
+# ============Plugins============
+# I always want to be in tmux mode because it's good, so that's happening here
+#if type tmux >/dev/null 2>/dev/null; then
+#  if [ -z "${TMUX}" ]; then
+#    tmux -f $HOME/.config/tmux.conf
+# fi
+#fi
+
+export RUST_LOG=wascc_host=info
+export GO111MODULE=on
+export VIMINIT="source ~/.config/vim/vimrc"
+
+alias ls='exa'
+alias ll='ls -alFh --group-directories-first'
+alias lt='ls -lhaFT -L 2 --group-directories-first'
+
+# Setting key bindings for moving w/ alt
+bindkey "\e[1;3D" backward-word
+bindkey "\e[1;3C" forward-word

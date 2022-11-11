@@ -20,7 +20,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# Don't let zsh set window title
+DISABLE_AUTO_TITLE="true"
 source $ZSH/oh-my-zsh.sh
+# Don't let zsh set window title
+DISABLE_AUTO_TITLE="true"
 
 # User configuration
 
@@ -62,6 +66,7 @@ alias wasmbleach="ps -ax | grep -i wasmcloud | awk '{print $1}' |xargs kill -9"
 alias cat='bat'
 alias f='fuck'
 alias p='ps aux'
+alias t='tmux -f ~/.config/tmux.conf'
 
 function cleanup_this_dir() {
 	folder="cleanup$(date +%m%d%Y)"
