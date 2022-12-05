@@ -50,7 +50,6 @@ eval $(thefuck --alias)
 #  fi
 #fi
 
-export RUST_LOG=info
 export GO111MODULE=on
 export VIMINIT="source ~/.config/vim/vimrc"
 export AWS_PROFILE=dev

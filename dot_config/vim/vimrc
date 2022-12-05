@@ -15,6 +15,9 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries'}
 " rust.vim
 Plug 'rust-lang/rust.vim'
 
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+
 " Tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 
