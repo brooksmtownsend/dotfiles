@@ -66,6 +66,7 @@ alias cat='bat'
 alias f='fuck'
 alias p='ps aux'
 alias t='tmux -f ~/.config/tmux.conf'
+alias rustclean='fd --no-ignore-vcs --glob "target" -t d | xargs rm -rf'
 
 function cleanup_this_dir() {
 	folder="cleanup$(date +%m%d%Y)"
@@ -93,3 +94,7 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 #fpath=( $HOME/.wash "${fpath[@]}" )
 #[ -n "$ZSH" ] && [ -r $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 export PATH="/Users/brooks/.cosmo/bin:${PATH}"
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
